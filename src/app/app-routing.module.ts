@@ -7,6 +7,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/home').then(m => m.HomeModule)
   },
   {
+    path: 'post',
+    loadChildren: () => import('./modules/post').then(m => m.PostModule)
+  },
+  {
     path: 'auth',
     loadChildren: () => import('./modules/auth').then(m => m.AuthModule)
   },
