@@ -1,0 +1,21 @@
+<section class="post">
+
+  <header class="header">
+    <a [routerLink]="['/post', post?.id]" class="header-link-wrapper">
+      <h4 class="title">#{{ post?.id }} {{ post?.title }}</h4>
+    </a>
+  </header>
+
+  <article class="info">
+    <p class="text" *ngIf="(post && isPreview); else fullBody">{{ post.body | truncate: 200 }}</p>
+    <ng-template #fullBody>
+      <p class="text" #full>{{ post?.body }}</p>
+    </ng-template>
+  </article>
+
+  <footer class="footer">
+    <p class="created-by">Created by <i>user #{{ post?.userId }}</i></p>
+    <a [routerLink]="['/post', post?.id]" class="more-details" *ngIf="isPreview">More details...</a>
+  </footer>
+
+</section>

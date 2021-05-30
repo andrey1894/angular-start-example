@@ -1,0 +1,36 @@
+
+.app-header {
+  background: var(--primary-color);
+
+  .app-nav {
+    padding: 0.6rem 1rem;
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    .logo {
+      margin-right: 2rem;
+      width: 10rem;
+
+      img {
+        margin-bottom: -0.5rem;
+      }
+
+      &.link {
+        font-size: 1rem;
+        text-align: right;
+        text-transform: lowercase;
+        font-style: italic;
+      }
+    }
+
+    .link {
+      margin-left: 2rem;
+      font-size: 1.3rem;
+      color: var(--white-color);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+  }
+
+}

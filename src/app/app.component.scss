@@ -1,0 +1,28 @@
+@import 'styles';
+
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+
+  .app-main {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+
+    .scroll-content {
+      height: 100%;
+      overflow: auto;
+    }
+
+    .app-notification {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 4rem;
+      width: 100%;
+      z-index: $notification_z;
+    }
+  }
+}

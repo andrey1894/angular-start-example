@@ -1,7 +1,3 @@
 <div class="post-wrapper">
-  <section class="post" *ngIf="post">
-    <h4 class="post-title">#{{ post?.id }} {{ post?.title }}</h4>
-    <p class="post-info">{{ post?.body }}</p>
-    <p class="author">Author: #{{ post?.userId }}</p>
-  </section>
+  <app-post-template [post]="post"></app-post-template>
 </div>

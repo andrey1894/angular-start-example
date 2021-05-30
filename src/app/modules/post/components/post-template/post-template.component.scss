@@ -1,0 +1,45 @@
+@import 'styles';
+
+
+.post {
+  margin-bottom: 2rem;
+  padding: 2rem;
+
+  @include block-shadow();
+
+  .header {
+    margin-bottom: 2rem;
+
+    .header-link-wrapper {
+      text-decoration: none;
+
+      .title {
+        font-size: 1.5rem;
+      }
+    }
+
+  }
+
+  .info {
+    margin-bottom: 2rem;
+
+    .text {
+      font-size: 1.2rem;
+      line-height: 1.5;
+
+    }
+  }
+
+  .footer {
+    display: flex;
+    align-items: center;
+
+    .created-by {
+      margin-right: 1rem;
+    }
+
+    .more-details {
+
+    }
+  }
+}
