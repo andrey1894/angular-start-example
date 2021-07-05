@@ -1,5 +1,9 @@
-<form class="form">
-  <label><input type="text" name="name" [(ngModel)]="name" title="Input 'test'"></label>
-  <label><input type="password" name="password" [(ngModel)]="password" title="Input 'test'"></label>
-  <button class="btn btn-primary">{{ 'submit' | translate }}</button>
+<form class="form" (ngSubmit)="submit()"  #loginForm="ngForm">
+  <label>
+    <input type="text" name="name" [(ngModel)]="name" title="Input 'test'" required [disabled]="inRequest">
+  </label>
+  <label>
+    <input type="password" name="password" [(ngModel)]="password" title="Input 'test'" required [disabled]="inRequest">
+  </label>
+  <button class="btn btn-primary" [disabled]="loginForm.form.invalid || inRequest">{{ 'submit' | translate }}</button>
 </form>

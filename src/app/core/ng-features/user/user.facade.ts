@@ -21,6 +21,7 @@ export interface IUserFacade {
   error$: Observable<Error | undefined>
 
   init(): void
+  login(name: string, password: string): void
   getUser(): void
 
 }
@@ -39,6 +40,10 @@ export class UserFacade implements IUserFacade {
 
   init(): void {
     this.store$.dispatch(USER_ACTIONS.init())
+  }
+
+  login(name: string, password: string) :void {
+    this.store$.dispatch(USER_ACTIONS.loginUser({ name, password }))
   }
 
   getUser(): void {

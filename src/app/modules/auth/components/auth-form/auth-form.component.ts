@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-auth-form',
@@ -7,6 +7,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class AuthFormComponent implements OnInit {
 
+  @Input() inRequest = false;
   @Output() login = new EventEmitter<{ name: string, password: string }>();
 
   name = 'test'
@@ -15,5 +16,12 @@ export class AuthFormComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void { }
+
+  submit(): void {
+    this.login.emit({
+      name: this.name,
+      password: this.password
+    })
+  }
 
 }

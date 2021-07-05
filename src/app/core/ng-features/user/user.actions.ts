@@ -17,7 +17,7 @@ export const getUser = createAction(
 
 export const getUserSuccess = createAction(
   '[User app] Get user success',
-  props<{ user: IUserDto }>()
+  props<{ user: IUserDto | undefined }>()
 )
 
 export const getUserError = createAction(
