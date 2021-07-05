@@ -20,6 +20,7 @@ export interface IUserFacade {
   user$: Observable<IUserDto | undefined>
   error$: Observable<Error | undefined>
 
+  init(): void
   getUser(): void
 
 }
@@ -35,6 +36,10 @@ export class UserFacade implements IUserFacade {
   user$ = this.store$.select(selectUser)
 
   constructor(private store$: Store<IAppWithUserState>) {}
+
+  init(): void {
+    this.store$.dispatch(USER_ACTIONS.init())
+  }
 
   getUser(): void {
     this.store$.dispatch(USER_ACTIONS.getUser())

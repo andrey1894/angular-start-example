@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 
 import { EUserDtoRole, IUserDto } from '@core/models';
 
@@ -17,6 +17,12 @@ export class UserApiService {
       role: EUserDtoRole.ADMIN
     }
     return of(fakeUser)
+  }
+
+  loginUser(name: string, password: string): Observable<string> {
+    return name === 'test' && password === 'test'
+      ? of('test')
+      : throwError('Invalid name or password')
   }
 
 }
