@@ -1,0 +1,17 @@
+.form {
+  margin: auto;
+
+  label {
+    display: block;
+    padding: 0.5rem 0;
+
+    input {
+      width: 300px;
+    }
+  }
+
+  .btn {
+    margin-top: 0.5rem;
+    width: 100%;
+  }
+}
