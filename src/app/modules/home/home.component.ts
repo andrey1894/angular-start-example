@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+
+import { UserFacade, USER_FACADE } from '@core/ng-features';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(@Inject(USER_FACADE) public userFacade: UserFacade) { }
 
   ngOnInit(): void {
+    this.userFacade.getUser();
   }
 
 }
