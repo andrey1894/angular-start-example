@@ -25,17 +25,25 @@ export const getUserError = createAction(
   props<{ error: Error }>()
 )
 
-export const loginUser = createAction(
-  '[User app] Login user',
+export const login = createAction(
+  '[User app] Login',
   props<{ name: string, password: string }>()
 )
 
-export const loginUserSuccess = createAction(
-  '[User app] Login user success',
+export const logout = createAction(
+  '[User app] Logout'
+)
+
+export const logoutSuccess = createAction(
+  '[User app] Logout success'
+)
+
+export const loginSuccess = createAction(
+  '[User app] Login success',
   props<{ token: string }>()
 )
 
-export const loginUserError = createAction(
-  '[User app] Login user error',
+export const loginError = createAction(
+  '[User app] Login error',
   props<{ error: Error }>()
 )

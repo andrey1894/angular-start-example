@@ -33,18 +33,27 @@ export class UserEffects {
     )
   ))
 
-  loginUser$ = createEffect(() => this.actions$.pipe(
-    ofType(USER_ACTIONS.loginUser),
+  login$ = createEffect(() => this.actions$.pipe(
+    ofType(USER_ACTIONS.login),
     mergeMap(({ name, password }) => this.userApiService.loginUser(name, password).pipe(
-      map(token => USER_ACTIONS.loginUserSuccess({ token })),
+      map(token => USER_ACTIONS.loginSuccess({ token })),
       catchError(error => [
-        USER_ACTIONS.loginUserError({ error })
+        USER_ACTIONS.loginError({ error })
       ])
     ))
   ))
 
-  loginUserSuccess$ = createEffect(() => this.actions$.pipe(
-    ofType(USER_ACTIONS.loginUserSuccess),
+  logout$ = createEffect(() => this.actions$.pipe(
+    ofType(USER_ACTIONS.logout),
+    mergeMap(() => [
+      USER_ACTIONS.saveToken({ token: '' }),
+      USER_ACTIONS.getUserSuccess({ user: undefined }),
+      USER_ACTIONS.logoutSuccess()
+    ])
+  ))
+
+  loginSuccess$ = createEffect(() => this.actions$.pipe(
+    ofType(USER_ACTIONS.loginSuccess),
     mergeMap(({ token }) => [
       USER_ACTIONS.saveToken({ token }),
       USER_ACTIONS.getUser()
@@ -70,6 +79,11 @@ export class UserEffects {
     ofType(USER_ACTIONS.getUserSuccess),
     filter(user => !!user),
     tap(() => this.router.navigateByUrl('/'))
+  ), { dispatch: false })
+
+  logoutSuccess$ = createEffect(() => this.actions$.pipe(
+    ofType(USER_ACTIONS.logoutSuccess),
+    tap(() => this.router.navigateByUrl('/auth'))
   ), { dispatch: false })
 
 }

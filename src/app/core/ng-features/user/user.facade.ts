@@ -22,6 +22,7 @@ export interface IUserFacade {
 
   init(): void
   login(name: string, password: string): void
+  logout(): void
   getUser(): void
 
 }
@@ -43,7 +44,11 @@ export class UserFacade implements IUserFacade {
   }
 
   login(name: string, password: string) :void {
-    this.store$.dispatch(USER_ACTIONS.loginUser({ name, password }))
+    this.store$.dispatch(USER_ACTIONS.login({ name, password }))
+  }
+
+  logout() :void {
+    this.store$.dispatch(USER_ACTIONS.logout())
   }
 
   getUser(): void {
