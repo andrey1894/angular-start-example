@@ -34,5 +34,6 @@ export class NotificationStoreService {
     };
 
     this._notifications$.next([ ...this._notifications$.value, notification ]);
+    setTimeout(() => this._notifications$.next(this._notifications$.value.filter(n => n !== notification)), duration);
   }
 }

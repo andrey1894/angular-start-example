@@ -15,5 +15,5 @@ export const NOTIFICATION_DEFAULT: INotification = {
   messageI18n: '',
   messageKeyI18n: {},
   type: ENotificationType.INFO,
-  duration: 10
+  duration: 5000
 }

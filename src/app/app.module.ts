@@ -3,10 +3,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppStoreModule } from '@core/ng-features';
+import { FooterModule, HeaderModule, NotificationModule } from '@core/components';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { FooterModule, HeaderModule, NotificationModule } from '@core/components';
+import { TranslationModule } from './translation.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { FooterModule, HeaderModule, NotificationModule } from '@core/components
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    TranslationModule,
     AppStoreModule,
 
     HeaderModule,
