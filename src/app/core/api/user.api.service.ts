@@ -13,7 +13,7 @@ export class UserApiService {
   getUser(): Observable<IUserDto> {
     const fakeUser: IUserDto = {
       id: 1,
-      name: 'User',
+      name: 'Test',
       role: EUserDtoRole.ADMIN
     }
     return of(fakeUser)
@@ -22,7 +22,7 @@ export class UserApiService {
   loginUser(name: string, password: string): Observable<string> {
     return name === 'test' && password === 'test'
       ? of('test')
-      : throwError('Invalid name or password')
+      : throwError(new Error('Invalid name or password'))
   }
 
 }

@@ -47,6 +47,16 @@ export const userState = createReducer(
     }
   })),
 
+  on(USER_ACTIONS.loginError, (state, { error }) => ({
+    ...state,
+    inRequest: false,
+    inError: true,
+    data: {
+      ...state.data,
+      user: undefined,
+      error
+    }
+  })),
   on(USER_ACTIONS.getUserError, (state, { error }) => ({
     ...state,
     inRequest: false,

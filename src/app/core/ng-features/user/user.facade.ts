@@ -8,6 +8,7 @@ import * as USER_ACTIONS from './user.actions'
 import { IAppWithUserState } from './user.reducer'
 import {
   selectUser,
+  selectToken,
   selectUserError,
   selectUserInError,
   selectUserInRequest,
@@ -17,6 +18,7 @@ export interface IUserFacade {
 
   inRequest$: Observable<boolean>
   inError$: Observable<boolean>
+  token$: Observable<string | undefined>
   user$: Observable<IUserDto | undefined>
   error$: Observable<Error | undefined>
 
@@ -35,6 +37,7 @@ export class UserFacade implements IUserFacade {
   inRequest$ = this.store$.select(selectUserInRequest)
   inError$ = this.store$.select(selectUserInError)
   error$ = this.store$.select(selectUserError)
+  token$ = this.store$.select(selectToken)
   user$ = this.store$.select(selectUser)
 
   constructor(private store$: Store<IAppWithUserState>) {}
