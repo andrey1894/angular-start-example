@@ -10,6 +10,7 @@ export interface IUserState {
   inRequest: boolean;
   inError: boolean;
   data: {
+    token?: string;
     user?: IUserDto;
     error?: Error;
   };
@@ -32,13 +33,29 @@ export const createAppWithUiInitState = (): IAppWithUserState => ({
 export const userState = createReducer(
   createUserInitState(),
 
+  on(USER_ACTIONS.init, state => ({ ...state, inRequest: true })),
+  on(USER_ACTIONS.saveToken, (state, { token }) => ({ ...state, inRequest: true, data: { ...state.data, token } })),
   on(USER_ACTIONS.getUser, state => ({ ...state, inRequest: true })),
-  on(USER_ACTIONS.getUserSuccess, (state, { user }) => ({ ...state, inRequest: true, data: { user }})),
+  on(USER_ACTIONS.getUserSuccess, (state, { user }) => ({
+    ...state,
+    inRequest: false,
+    inError: false,
+    data: {
+      ...state.data,
+      user,
+      error: undefined
+    }
+  })),
+
   on(USER_ACTIONS.getUserError, (state, { error }) => ({
     ...state,
     inRequest: false,
     inError: true,
-    data: { user: undefined, error }
+    data: {
+      ...state.data,
+      user: undefined,
+      error
+    }
   })),
 
 )
