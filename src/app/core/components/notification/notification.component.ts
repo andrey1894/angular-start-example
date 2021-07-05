@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+import { ENotificationType, INotification } from '@core/models';
 
 @Component({
   selector: 'app-notification',
   templateUrl: './notification.component.html',
   styleUrls: ['./notification.component.scss']
 })
-export class NotificationComponent implements OnInit {
+export class NotificationComponent {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  @Input() notifications: INotification[] | null = []
+  notificationType = ENotificationType
 
 }
