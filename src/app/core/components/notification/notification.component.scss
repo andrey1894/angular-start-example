@@ -1,27 +1,31 @@
 @import 'styles';
 
 :host {
+  position: relative;
   display: block;
   height: 0;
 }
 
-.notification-wrapper {
+.notifications {
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - #{$notification_w / 2});
   margin: 0 auto;
   width: $notification_w;
   max-width: calc(100% - 2rem);
 
-  .message {
+  .notification {
     padding: 1rem;
     color: var(--primary-color);
     background-color: var(--white-color);
 
     @include block-shadow();
 
-    &.warning-message {
+    &.notification-warn {
       color: var(--warning-color);
     }
 
-    &.error-message {
+    &.notification-error {
       color: var(--error-color);
     }
   }

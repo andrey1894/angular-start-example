@@ -4,7 +4,7 @@
     <div class="scroll-content">
       <router-outlet></router-outlet>
     </div>
-    <app-notification class="app-notification"></app-notification>
+    <app-notification class="app-notification" [notifications]="notificationStoreService.notifications$ | async"></app-notification>
   </main>
   <app-footer></app-footer>
 </div>
