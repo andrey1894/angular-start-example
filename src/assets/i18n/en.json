@@ -1,1 +1,24 @@
-{}
+{
+  "appName": "example app",
+  "loading": "Loading...",
+  "homePage": "Home",
+  "postsPage": "Posts",
+  "logout": "logout",
+  "copyright": "© Created by Andrey",
+  "auth": {
+    "inputName": "Input 'test'",
+    "inputPassword": "Input 'test'",
+    "submit": "Login"
+  },
+  "error": {
+    "message": "Not found"
+  },
+  "home": {
+    "helloMessage": "Hello, {{name}}!"
+  },
+  "post": {
+    "createdBy": "Created by ",
+    "createdByUser": "user #{{userId}}",
+    "moreDetails": "More details..."
+  }
+}

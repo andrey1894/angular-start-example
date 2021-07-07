@@ -1,0 +1,11 @@
+.app-home {
+  display: flex;
+  height: 100%;
+
+  .hello-title {
+    margin: auto;
+    color: var(--primary-color);
+    font-size: 3rem;
+  }
+}
+

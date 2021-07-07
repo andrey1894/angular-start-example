@@ -2,14 +2,14 @@
   <nav class="app-nav">
     <a routerLink="/" class="logo link">
       <img src="assets/images/angular.svg" alt="angular">
-      example app
+      {{ 'appName' | translate }}
     </a>
-    <a routerLink="/" class="link">Home</a>
-    <a routerLink="/post" class="link">Posts</a>
+    <a routerLink="/" class="link">{{ 'homePage' | translate }}</a>
+    <a routerLink="/post" class="link">{{ 'postsPage' | translate }}</a>
 
     <div class="user-info" *ngIf="user">
       <span class="user-name">{{ user.name }}</span>
-      <button type="button" class="btn btn-default logout-btn" (click)="logout.emit()">logout</button>
+      <button type="button" class="btn btn-default logout-btn" (click)="logout.emit()">{{ 'logout' | translate }}</button>
     </div>
   </nav>
 </header>

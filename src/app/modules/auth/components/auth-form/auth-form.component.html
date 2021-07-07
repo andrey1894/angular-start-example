@@ -1,9 +1,9 @@
 <form class="form" (ngSubmit)="submit()"  #loginForm="ngForm">
   <label>
-    <input type="text" name="name" [(ngModel)]="name" title="Input 'test'" required [disabled]="inRequest">
+    <input type="text" name="name" [(ngModel)]="name" [title]="'auth.inputName' | translate" required [disabled]="inRequest">
   </label>
   <label>
-    <input type="password" name="password" [(ngModel)]="password" title="Input 'test'" required [disabled]="inRequest">
+    <input type="password" name="password" [(ngModel)]="password" [title]="'auth.inputPassword' | translate" required [disabled]="inRequest">
   </label>
-  <button class="btn btn-primary" [disabled]="loginForm.form.invalid || inRequest">{{ 'submit' | translate }}</button>
+  <button class="btn btn-primary" [disabled]="loginForm.form.invalid || inRequest">{{ 'auth.submit' | translate }}</button>
 </form>

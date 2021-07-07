@@ -1,9 +1,9 @@
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
-
-import { NotificationStoreService } from '@core/features';
-import { IUserFacade, USER_FACADE } from '@core/ng-features';
-import { Subject } from 'rxjs';
 import { filter, map, takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+
+import { IUserFacade, USER_FACADE } from '@core/ng-features';
+import { NotificationStoreService } from '@core/features';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +19,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private destroy$ = new Subject();
 
-
   ngOnInit(): void {
     this.userFacade.init();
 
@@ -31,6 +30,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    throw new Error('Method not implemented.');
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { SharedModule } from '@shared/index';
 
@@ -18,6 +19,7 @@ import { PostTemplateComponent } from './components';
   ],
   imports: [
     CommonModule,
+    TranslateModule,
     SharedModule,
     PostRoutingModule
   ],

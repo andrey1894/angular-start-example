@@ -14,8 +14,8 @@
   </article>
 
   <footer class="footer">
-    <p class="created-by">Created by <i>user #{{ post?.userId }}</i></p>
-    <a [routerLink]="['/post', post?.id]" class="more-details" *ngIf="isPreview">More details...</a>
+    <p class="created-by">{{ 'post.createdBy' | translate }} <i>{{ 'post.createdByUser' | translate: { userId: post?.userId } }}</i></p>
+    <a [routerLink]="['/post', post?.id]" class="more-details" *ngIf="isPreview">{{ 'post.moreDetails' | translate }}</a>
   </footer>
 
 </section>
