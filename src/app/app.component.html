@@ -1,5 +1,5 @@
 <div class="app-wrapper">
-  <app-header></app-header>
+  <app-header [user]="userFacade.user$ | async" (logout)="userFacade.logout()"></app-header>
   <main class="app-main">
     <div class="scroll-content">
       <router-outlet></router-outlet>

@@ -1,0 +1,16 @@
+.btn {
+  border-radius: 4px;
+  box-shadow: none;
+  border: none;
+  color: var(--white-color);
+
+  &.btn-primary {
+    padding: 0.5rem;
+    background-color: var(--primary-color);
+  }
+
+  &.btn-default {
+    color: var(--text-color);
+    background-color: transparent;
+  }
+}

@@ -6,5 +6,10 @@
     </a>
     <a routerLink="/" class="link">Home</a>
     <a routerLink="/post" class="link">Posts</a>
+
+    <div class="user-info" *ngIf="user">
+      <span class="user-name">{{ user.name }}</span>
+      <button type="button" class="btn btn-default logout-btn" (click)="logout.emit()">logout</button>
+    </div>
   </nav>
 </header>

@@ -31,6 +31,20 @@
       text-decoration: none;
       text-transform: uppercase;
     }
+
+    .user-info {
+      margin-left: auto;
+
+      .user-name {
+        color: var(--white-color);
+      }
+
+      .logout-btn {
+        margin-left: 1rem;
+        color: var(--white-color);
+        opacity: 0.6;
+      }
+    }
   }
 
 }
